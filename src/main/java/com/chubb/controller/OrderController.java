@@ -1,6 +1,7 @@
 package com.chubb.controller;
 import com.chubb.request.*;
 import com.chubb.service.OrderService;
+import com.chubb.request.Order1;
 
 import jakarta.validation.Valid;
 
@@ -24,9 +25,9 @@ public class OrderController {
 	}
 	
 	@PostMapping("/order")
-	float saveOrder(@RequestBody @Valid Order order)
+	float saveOrder(@RequestBody @Valid Order1 order)
 	{
-		order.totalprice();
+		
 		log.debug("logger added");
 		service.insertOrder(order);
 		return order.getPrice();
